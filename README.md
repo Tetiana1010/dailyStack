@@ -10,7 +10,7 @@ A minimal starter template for 🏝️ TanStack Start. [→ Preview here](https:
 
 ## Getting Started
 
-1. [Use this template](https://github.com/new?template_name=react-tanstarter&template_owner=dotnize) or clone this repository.
+1. Clone this repository.
 
 2. Install dependencies:
 
@@ -53,10 +53,6 @@ These scripts in [package.json](./package.json#L5) use **pnpm** by default, but 
 - **`format`** and **`lint`** - Run Prettier and ESLint.
 - **`deps`** - Selectively upgrade dependencies via npm-check-updates.
 
-#### Utilities
-
-- [`auth-guard.ts`](./src/lib/middleware/auth-guard.ts) - Sample middleware for forcing authentication on server functions. ([see #5](https://github.com/dotnize/react-tanstarter/issues/5))
-- [`ThemeToggle.tsx`](./src/components/ThemeToggle.tsx) - A simple component to toggle between light and dark mode. ([#7](https://github.com/dotnize/react-tanstarter/issues/7))
 
 ## Building for production
 
