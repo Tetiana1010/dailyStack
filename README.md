@@ -1,72 +1,63 @@
-# Welcome to TanStack.com!
+# [React TanStarter](https://github.com/dotnize/react-tanstarter)
 
-This site is built with TanStack Router!
+A minimal starter template for 🏝️ TanStack Start. [→ Preview here](https://tanstarter.nize.ph/)
 
-- [TanStack Router Docs](https://tanstack.com/router)
+- [React 19](https://react.dev) + [React Compiler](https://react.dev/learn/react-compiler)
+- TanStack [Start](https://tanstack.com/start/latest) + [Router](https://tanstack.com/router/latest) + [Query](https://tanstack.com/query/latest)
+- [Tailwind CSS v4](https://tailwindcss.com/) + [shadcn/ui](https://ui.shadcn.com/)
+- [Drizzle ORM](https://orm.drizzle.team/) + PostgreSQL
+- [Better Auth](https://www.better-auth.com/)
 
-It's deployed automagically with Netlify!
+## Getting Started
 
-- [Netlify](https://netlify.com/)
+1. [Use this template](https://github.com/new?template_name=react-tanstarter&template_owner=dotnize) or clone this repository.
 
-## Development
+2. Install dependencies:
 
-From your terminal:
+   ```bash
+   pnpm install # npm install
+   ```
 
-```sh
-pnpm install
-pnpm dev
-```
+3. Create a `.env` file based on [`.env.example`](./.env.example).
 
-This starts your app in development mode, rebuilding assets on file changes.
+4. Push the schema to your database with drizzle-kit:
 
-## Editing and previewing the docs of TanStack projects locally
+   ```bash
+   pnpm db push # npm run db push
+   ```
 
-The documentations for all TanStack projects except for `React Charts` are hosted on [https://tanstack.com](https://tanstack.com), powered by this TanStack Router app.
-In production, the markdown doc pages are fetched from the GitHub repos of the projects, but in development they are read from the local file system.
+   https://orm.drizzle.team/docs/migrations
 
-Follow these steps if you want to edit the doc pages of a project (in these steps we'll assume it's [`TanStack/form`](https://github.com/tanstack/form)) and preview them locally :
+5. Run the development server:
 
-1. Create a new directory called `tanstack`.
+   ```bash
+   pnpm dev # npm run dev
+   ```
 
-```sh
-mkdir tanstack
-```
+   The development server should now be running at [http://localhost:3000](http://localhost:3000).
 
-2. Enter the directory and clone this repo and the repo of the project there.
+## Issue watchlist
 
-```sh
-cd tanstack
-git clone git@github.com:TanStack/tanstack.com.git
-git clone git@github.com:TanStack/form.git
-```
+- [React Compiler docs](https://react.dev/learn/react-compiler), [Working Group](https://github.com/reactwg/react-compiler/discussions) - React Compiler is still in beta. You can disable it in [app.config.ts](./app.config.ts#L15) if you prefer.
+- https://github.com/TanStack/router/discussions/2863 - TanStack Start is in beta and may still undergo major changes.
 
-> [!NOTE]
-> Your `tanstack` directory should look like this:
->
-> ```
-> tanstack/
->    |
->    +-- form/
->    |
->    +-- tanstack.com/
-> ```
+## Goodies
 
-> [!WARNING]
-> Make sure the name of the directory in your local file system matches the name of the project's repo. For example, `tanstack/form` must be cloned into `form` (this is the default) instead of `some-other-name`, because that way, the doc pages won't be found.
+#### Scripts
 
-3. Enter the `tanstack/tanstack.com` directory, install the dependencies and run the app in dev mode:
+These scripts in [package.json](./package.json#L5) use **pnpm** by default, but you can modify them to use your preferred package manager.
 
-```sh
-cd tanstack.com
-pnpm i
-# The app will run on https://localhost:3000 by default
-pnpm dev
-```
+- **`auth:generate`** - Regenerate the [auth db schema](./src/lib/server/schema/auth.schema.ts) if you've made changes to your Better Auth [config](./src/lib/server/auth.ts).
+- **`db`** - Run drizzle-kit commands. (e.g. `pnpm db generate` to generate a migration)
+- **`ui`** - The shadcn/ui CLI. (e.g. `pnpm ui add button` to add the button component)
+- **`format`** and **`lint`** - Run Prettier and ESLint.
+- **`deps`** - Selectively upgrade dependencies via npm-check-updates.
 
-4. Now you can visit http://localhost:3000/form/latest/docs/overview in the browser and see the changes you make in `tanstack/form/docs`.
+#### Utilities
 
-> [!NOTE]
-> The updated pages need to be manually reloaded in the browser.
+- [`auth-guard.ts`](./src/lib/middleware/auth-guard.ts) - Sample middleware for forcing authentication on server functions. ([see #5](https://github.com/dotnize/react-tanstarter/issues/5))
+- [`ThemeToggle.tsx`](./src/components/ThemeToggle.tsx) - A simple component to toggle between light and dark mode. ([#7](https://github.com/dotnize/react-tanstarter/issues/7))
 
-> [!WARNING]
-> You will need to update the `docs/config.json` file (in the project's repo) if you add a new doc page!
+## Building for production
+
+Read the [hosting docs](https://tanstack.com/start/latest/docs/framework/react/hosting) for information on how to deploy your TanStack Start app.
