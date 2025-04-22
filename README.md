@@ -1,4 +1,4 @@
-# [React TanStarter](https://github.com/dotnize/react-tanstarter)
+# React TanStarter
 
 A minimal starter template for 🏝️ TanStack Start. [→ Preview here](https://tanstarter.nize.ph/)
 
